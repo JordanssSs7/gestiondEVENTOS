@@ -1,0 +1,1153 @@
+{
+  "info": {
+    "name": "Gestion de Eventos - Microservicios",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Ejecutar con Collection Runner (en orden). Cada request valida su codigo HTTP esperado. Requiere BD vacia (o cambiar los documentos)."
+  },
+  "item": [
+    {
+      "name": "1. Asistente-service (8081)",
+      "item": [
+        {
+          "name": "Registrar asistente Ana (OK 201)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });",
+                  "pm.collectionVariables.set('asistente1', pm.response.json().id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{asistente}}/api/asistentes"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documento\": \"70123456\",\n  \"nombres\": \"Ana\",\n  \"apellidos\": \"Torres Vega\",\n  \"correo\": \"ana@mail.com\",\n  \"telefono\": \"987654321\",\n  \"estado\": \"ACTIVO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Registrar asistente Luis (OK 201)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });",
+                  "pm.collectionVariables.set('asistente2', pm.response.json().id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{asistente}}/api/asistentes"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documento\": \"70123457\",\n  \"nombres\": \"Luis\",\n  \"apellidos\": \"Torres Vega\",\n  \"correo\": \"luis@mail.com\",\n  \"telefono\": \"987654321\",\n  \"estado\": \"ACTIVO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Registrar asistente Carlos (OK 201)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });",
+                  "pm.collectionVariables.set('asistente3', pm.response.json().id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{asistente}}/api/asistentes"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documento\": \"70123458\",\n  \"nombres\": \"Carlos\",\n  \"apellidos\": \"Torres Vega\",\n  \"correo\": \"carlos@mail.com\",\n  \"telefono\": \"987654321\",\n  \"estado\": \"ACTIVO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Registrar asistente Marta INACTIVA (OK 201)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });",
+                  "pm.collectionVariables.set('asistente4', pm.response.json().id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{asistente}}/api/asistentes"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documento\": \"70123459\",\n  \"nombres\": \"Marta\",\n  \"apellidos\": \"Torres Vega\",\n  \"correo\": \"marta@mail.com\",\n  \"telefono\": \"987654321\",\n  \"estado\": \"INACTIVO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Listar asistentes (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{asistente}}/api/asistentes"
+            }
+          }
+        },
+        {
+          "name": "Buscar asistente por ID (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{asistente}}/api/asistentes/{{asistente1}}"
+            }
+          }
+        },
+        {
+          "name": "Actualizar asistente (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{asistente}}/api/asistentes/{{asistente1}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documento\": \"70123456\",\n  \"nombres\": \"Ana\",\n  \"apellidos\": \"Torres Vega\",\n  \"correo\": \"ana@mail.com\",\n  \"telefono\": \"999888777\",\n  \"estado\": \"ACTIVO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: documento duplicado (409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 409', function () { pm.response.to.have.status(409); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{asistente}}/api/asistentes"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documento\": \"70123456\",\n  \"nombres\": \"Ana\",\n  \"apellidos\": \"Torres Vega\",\n  \"correo\": \"ana@mail.com\",\n  \"telefono\": \"987654321\",\n  \"estado\": \"ACTIVO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: datos invalidos (400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{asistente}}/api/asistentes"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documento\": \"1\",\n  \"nombres\": \"\",\n  \"apellidos\": \"x\",\n  \"correo\": \"mal\",\n  \"estado\": \"X\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: ID inexistente (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 404', function () { pm.response.to.have.status(404); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{asistente}}/api/asistentes/999"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Evento-service (8082)",
+      "item": [
+        {
+          "name": "Registrar evento (OK 201)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });",
+                  "pm.collectionVariables.set('eventoId', pm.response.json().id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{evento}}/api/eventos"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Congreso de Tecnologia 2026\",\n  \"lugar\": \"Centro de Convenciones, Lima\",\n  \"fecha\": \"2026-12-10\",\n  \"capacidad\": 2,\n  \"estado\": \"ACTIVO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Listar eventos (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{evento}}/api/eventos"
+            }
+          }
+        },
+        {
+          "name": "Buscar evento por nombre (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{evento}}/api/eventos?nombre=congreso"
+            }
+          }
+        },
+        {
+          "name": "Buscar evento por ID (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{evento}}/api/eventos/{{eventoId}}"
+            }
+          }
+        },
+        {
+          "name": "Actualizar evento (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{evento}}/api/eventos/{{eventoId}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Congreso de Tecnologia 2026\",\n  \"lugar\": \"Hotel Lima\",\n  \"fecha\": \"2026-12-10\",\n  \"capacidad\": 2,\n  \"estado\": \"ACTIVO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: capacidad 0 y nombre vacio (400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{evento}}/api/eventos"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"\",\n  \"lugar\": \"Centro de Convenciones, Lima\",\n  \"fecha\": \"2026-12-10\",\n  \"capacidad\": 0,\n  \"estado\": \"ACTIVO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: fecha con formato incorrecto (400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{evento}}/api/eventos"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Congreso de Tecnologia 2026\",\n  \"lugar\": \"Centro de Convenciones, Lima\",\n  \"fecha\": \"10/12/2026\",\n  \"capacidad\": 2,\n  \"estado\": \"ACTIVO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: ID inexistente (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 404', function () { pm.response.to.have.status(404); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{evento}}/api/eventos/999"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Inscripcion-service (8083)",
+      "item": [
+        {
+          "name": "Inscribir Ana (OK 201)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });",
+                  "pm.collectionVariables.set('inscripcion1', pm.response.json().id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEvento\": {{eventoId}},\n  \"idAsistente\": {{asistente1}},\n  \"fecha\": \"2026-11-05\",\n  \"estado\": \"CONFIRMADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Inscribir Luis (OK 201)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });",
+                  "pm.collectionVariables.set('inscripcion2', pm.response.json().id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEvento\": {{eventoId}},\n  \"idAsistente\": {{asistente2}},\n  \"fecha\": \"2026-11-05\",\n  \"estado\": \"CONFIRMADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Listar inscripciones (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones"
+            }
+          }
+        },
+        {
+          "name": "Listar inscripciones de un evento (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones?idEvento={{eventoId}}"
+            }
+          }
+        },
+        {
+          "name": "Buscar inscripcion por ID (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones/{{inscripcion1}}"
+            }
+          }
+        },
+        {
+          "name": "ERROR: asistente ya inscrito (409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 409', function () { pm.response.to.have.status(409); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEvento\": {{eventoId}},\n  \"idAsistente\": {{asistente1}},\n  \"fecha\": \"2026-11-05\",\n  \"estado\": \"CONFIRMADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: evento sin cupos (409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 409', function () { pm.response.to.have.status(409); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEvento\": {{eventoId}},\n  \"idAsistente\": {{asistente3}},\n  \"fecha\": \"2026-11-05\",\n  \"estado\": \"CONFIRMADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: asistente inactivo (409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 409', function () { pm.response.to.have.status(409); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEvento\": {{eventoId}},\n  \"idAsistente\": {{asistente4}},\n  \"fecha\": \"2026-11-05\",\n  \"estado\": \"CONFIRMADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: evento inexistente (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 404', function () { pm.response.to.have.status(404); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEvento\": 999,\n  \"idAsistente\": {{asistente3}},\n  \"fecha\": \"2026-11-05\",\n  \"estado\": \"CONFIRMADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: asistente inexistente (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 404', function () { pm.response.to.have.status(404); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEvento\": {{eventoId}},\n  \"idAsistente\": 999,\n  \"fecha\": \"2026-11-05\",\n  \"estado\": \"CONFIRMADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: datos invalidos (400)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 400', function () { pm.response.to.have.status(400); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"X\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Cancelar inscripcion (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones/{{inscripcion1}}/estado"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"CANCELADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: reactivar inscripcion cancelada (409)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 409', function () { pm.response.to.have.status(409); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones/{{inscripcion1}}/estado"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"CONFIRMADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Inscribir Carlos, cupo liberado (OK 201)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 201', function () { pm.response.to.have.status(201); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idEvento\": {{eventoId}},\n  \"idAsistente\": {{asistente3}},\n  \"fecha\": \"2026-11-05\",\n  \"estado\": \"CONFIRMADA\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: inscripcion inexistente (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 404', function () { pm.response.to.have.status(404); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones/999"
+            }
+          }
+        },
+        {
+          "name": "Eliminar inscripcion (OK 200)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () { pm.response.to.have.status(200); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones/{{inscripcion1}}"
+            }
+          }
+        },
+        {
+          "name": "ERROR: eliminar de nuevo (404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 404', function () { pm.response.to.have.status(404); });"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{inscripcion}}/api/inscripciones/{{inscripcion1}}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "asistente",
+      "value": "http://localhost:8081"
+    },
+    {
+      "key": "evento",
+      "value": "http://localhost:8082"
+    },
+    {
+      "key": "inscripcion",
+      "value": "http://localhost:8083"
+    }
+  ]
+}
