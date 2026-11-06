@@ -1,4 +1,4 @@
-# Laboratorio 16 — Sistema de Gestión de Eventos (Microservicios)
+# Evaluación 03 — Sistema de Gestión de Eventos (Microservicios)
 
 **Estudiante:** Reyes Saravia, Jordan Arturo  **Curso:** Desarrollo de aplicaciones Web — Evaluación N° 03
 **Tema asignado (N.º 15):** Gestión de eventos → Evento, Asistente, Inscripción
