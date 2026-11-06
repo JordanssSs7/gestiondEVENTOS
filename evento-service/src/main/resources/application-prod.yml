@@ -1,0 +1,15 @@
+server:
+  port: 9092
+
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST:servidor}:3306/bd_evento
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+empresa:
+  ambiente: produccion

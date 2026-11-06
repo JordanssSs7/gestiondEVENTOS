@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 250">
+<polygon points="95,0 30,205 160,205" fill="#fff" opacity=".13"/>
+<polygon points="325,0 260,205 390,205" fill="#fff" opacity=".13"/>
+<path d="M0 22 Q210 92 420 22" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2"/>
+<g>
+<polygon points="40,38 58,36 50,58" fill="#fde68a"/><polygon points="88,52 106,52 97,74" fill="#fca5a5"/>
+<polygon points="140,66 158,69 147,90" fill="#a5f3fc"/><polygon points="198,74 216,74 207,96" fill="#bae6fd"/>
+<polygon points="256,69 274,66 266,90" fill="#fde68a"/><polygon points="313,52 331,52 322,74" fill="#fca5a5"/>
+<polygon points="362,36 380,38 370,58" fill="#a5f3fc"/>
+</g>
+<rect x="30" y="196" width="360" height="26" rx="9" fill="#fff" opacity=".28"/>
+<g transform="translate(150 66)">
+<rect width="120" height="116" rx="16" fill="#fff"/>
+<path d="M0 16a16 16 0 0 1 16-16h88a16 16 0 0 1 16 16v20H0z" fill="#f43f5e"/>
+<rect x="28" y="-8" width="9" height="22" rx="4.5" fill="#be123c"/><rect x="83" y="-8" width="9" height="22" rx="4.5" fill="#be123c"/>
+<g fill="#e5e7eb"><rect x="14" y="50" width="16" height="14" rx="4"/><rect x="38" y="50" width="16" height="14" rx="4"/><rect x="62" y="50" width="16" height="14" rx="4"/><rect x="86" y="50" width="16" height="14" rx="4"/>
+<rect x="14" y="72" width="16" height="14" rx="4"/><rect x="38" y="72" width="16" height="14" rx="4"/><rect x="86" y="72" width="16" height="14" rx="4"/>
+<rect x="14" y="94" width="16" height="14" rx="4"/><rect x="62" y="94" width="16" height="14" rx="4"/></g>
+<rect x="62" y="72" width="16" height="14" rx="4" fill="#facc15"/>
+<polygon points="70,69 72.4,74 78,74.8 74,78.6 75,84 70,81.4 65,84 66,78.6 62,74.8 67.6,74" fill="#f59e0b"/>
+<rect x="86" y="94" width="16" height="14" rx="4" fill="#2563eb"/>
+</g>
+<g><circle cx="38" cy="236" r="15" fill="#fde68a"/><circle cx="82" cy="240" r="14" fill="#fca5a5"/><circle cx="128" cy="236" r="15" fill="#a5f3fc"/>
+<circle cx="292" cy="236" r="15" fill="#bae6fd"/><circle cx="338" cy="240" r="14" fill="#fde68a"/><circle cx="382" cy="236" r="15" fill="#fca5a5"/></g>
+<g fill="#fff" opacity=".9"><circle cx="20" cy="120" r="4"/><circle cx="402" cy="130" r="5"/><circle cx="120" cy="40" r="3"/><circle cx="300" cy="30" r="3"/>
+<circle cx="60" cy="160" r="3"/><circle cx="360" cy="170" r="4"/></g>
+</svg>
